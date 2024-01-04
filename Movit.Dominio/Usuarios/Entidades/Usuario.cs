@@ -8,7 +8,7 @@ namespace Movit.Dominio.Usuarios.Entidades
         public int Id { get;  protected set; }
         public string Email { get; protected set; }
         public string Senha { get; protected set; }
-        public TipoUsuarioEnum TipoUsuario { get; set; }
+        public TipoUsuarioEnum TipoUsuario { get; protected set; }
 
         public Usuario(string email, string senha, TipoUsuarioEnum tipoUsuario)
         {
