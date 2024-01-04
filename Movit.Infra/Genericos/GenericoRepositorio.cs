@@ -55,4 +55,26 @@ public class GenericoRepositorio<T> : IGenericoRepositorio<T> where T : class
     {
         return session.Get<T>(id);
     }
+
+    public async Task<T> RecuperarAsync(int id)
+    {
+        return await session.GetAsync<T>(id);
+    }
+
+    public async Task<T> InserirAsync(T entidade)
+    {
+        await session.SaveAsync(entidade);
+        return entidade;
+    }
+
+    public async Task<T> EditarAsync(T entidade)
+    {
+        await session.UpdateAsync(entidade);
+        return entidade;
+    }
+
+    public async Task ExcluirAsync(T entidade)
+    {
+        await session.DeleteAsync(entidade);
+    }
 }
