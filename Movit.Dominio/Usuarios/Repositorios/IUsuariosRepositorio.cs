@@ -5,6 +5,6 @@ namespace Movit.Dominio.Usuarios.Repositorios
 {
     public interface IUsuariosRepositorio : IGenericoRepositorio<Usuario>
     {
-        
+        Task<Usuario> RecuperaUsuarioPorEmailAsync(string email);
     }
 }
