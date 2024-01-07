@@ -8,7 +8,7 @@ namespace Movit.Infra.Genericos;
 
 public class GenericoRepositorio<T> : IGenericoRepositorio<T> where T : class
 {
-    private readonly ISession session;
+    public readonly ISession session;
     public GenericoRepositorio(ISession session)
     {
         this.session = session;
