@@ -3,6 +3,7 @@ namespace Movit.Dominio.Cantinas.Entidades
 {
     public class Cantina
     {
+        public int Id { get; protected set; }
         public string NomeComida { get; protected set; }
         public DateTime DataCantina { get; protected set; }
         public decimal Valor { get; protected set; }
@@ -11,12 +12,12 @@ namespace Movit.Dominio.Cantinas.Entidades
         public Cantina(string nomeComida, DateTime dataCantina , decimal valor, int quantidade)
         {
             SetNomeComida(nomeComida);
-            SetDataCantina(DateTime.Now);
+            SetDataCantina(dataCantina);
             SetValor(valor);
             SetQuantidade(quantidade);
             
         }
-        private void SetNomeComida(string nomeComida)
+        public void SetNomeComida(string nomeComida)
         {
             if(string.IsNullOrWhiteSpace(nomeComida))
             {
@@ -25,7 +26,7 @@ namespace Movit.Dominio.Cantinas.Entidades
             NomeComida = nomeComida;
         }
         
-        private void SetDataCantina(DateTime dataCantina)
+        public void SetDataCantina(DateTime dataCantina)
         {
             if (dataCantina == DateTime.MinValue)
             throw new AtributoInvalidoExcecao("dataPedido");
@@ -33,20 +34,20 @@ namespace Movit.Dominio.Cantinas.Entidades
             DataCantina = dataCantina;
         }
 
-        private void SetValor(decimal valor)
+        public void SetValor(decimal valor)
         {
-                if (valor <= 0)
-                throw new RegraDeNegocioExcecao("O preço não pode ser menor ou igual a Zero.");
+            if (valor <= 0)
+            throw new RegraDeNegocioExcecao("O preço não pode ser menor ou igual a Zero.");
 
             Valor = valor;
         }
 
-        private void SetQuantidade(int quantidade)
+        public void SetQuantidade(int quantidade)
         {
             if (quantidade < 0)
             throw new RegraDeNegocioExcecao("A quantidade não pode menor que Zero");
 
-        Quantidade = quantidade;
+            Quantidade = quantidade;
         }
     }
 }

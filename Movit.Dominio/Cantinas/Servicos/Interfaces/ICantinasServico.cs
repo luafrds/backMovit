@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Movit.Dominio.Cantinas.Entidades;
+using Movit.Dominio.Cantinas.Servicos.Comandos;
 
 namespace Movit.Dominio.Cantinas.Servicos.Interfaces
 {
     public interface ICantinasServico
     {
-        Cantina Inserir (Cantina cantina);
-        Cantina Instanciar (string nomeComida, decimal valor, int quantidade);
-        Cantina Editar (string nomeComida, decimal valor, int quantidade);
+        Task<Cantina> ValidarAsync(int id);
+        Task<Cantina> InserirAsync (CantinaComando comando);
+        Task<Cantina> EditarAsync (CantinaComando comando);
 
     }
 }
