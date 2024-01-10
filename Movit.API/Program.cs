@@ -28,7 +28,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaFinanceiro", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Movit", Version = "v1" });
 
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 
