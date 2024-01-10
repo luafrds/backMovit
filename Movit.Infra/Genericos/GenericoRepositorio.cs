@@ -3,6 +3,7 @@ using Movit.Dominio.Util;
 using Movit.Dominio.Util.Enumeradores;
 using Movit.Dominio.Genericos;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace Movit.Infra.Genericos;
 
@@ -76,5 +77,11 @@ public class GenericoRepositorio<T> : IGenericoRepositorio<T> where T : class
     public async Task ExcluirAsync(T entidade)
     {
         await session.DeleteAsync(entidade);
+    }
+
+    public async Task<IQueryable<T>> QueryAsync()
+    {
+        List<T> resultado = await session.Query<T>().ToListAsync();
+        return resultado.AsQueryable();
     }
 }
