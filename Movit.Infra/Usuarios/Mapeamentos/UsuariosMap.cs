@@ -8,6 +8,7 @@ namespace Movit.Infra.Usuarios.Mapeamentos
     {
         public UsuariosMap()
         {
+            Table("usuario");
             Id(x => x.Id, "id");
             Map(x => x.Email, "email");
             Map(x => x.Senha, "senha");
