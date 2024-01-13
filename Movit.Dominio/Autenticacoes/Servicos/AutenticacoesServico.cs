@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Movit.Dominio.Autenticacoes.Servicos.Interfaces;
 using Movit.Dominio.Excecoes;
 using Movit.Dominio.Usuarios.Entidades;
+using Movit.Dominio.Usuarios.Enumeradores;
 
 namespace Movit.Dominio.Autenticacoes.Servicos
 {
@@ -31,21 +32,42 @@ namespace Movit.Dominio.Autenticacoes.Servicos
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public Usuario ValidarCadastro(string email, string senha)
+        public Usuario ValidarCadastro(string email, string senha, int tipoUsuario)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
-                throw new RegraDeNegocioExcecao("Email invalido");
+                throw new RegraDeNegocioExcecao("Email inválido");
             }
 
             if (string.IsNullOrWhiteSpace(senha))
             {
-                throw new RegraDeNegocioExcecao("Senha invalido");
+                throw new RegraDeNegocioExcecao("Senha inválida");
             }
 
-            Usuario usuario = new Usuario(email, senha);
+            TipoUsuarioEnum tipoUsuarioEnum;
+
+            switch (tipoUsuario)
+            {
+                case 1:
+                    tipoUsuarioEnum = TipoUsuarioEnum.Integrante;
+                    break;
+
+                case 2:
+                    tipoUsuarioEnum = TipoUsuarioEnum.Lider;
+                    break;
+
+                case 3:
+                    tipoUsuarioEnum = TipoUsuarioEnum.Administrador;
+                    break;
+
+                default:
+                    throw new RegraDeNegocioExcecao("Tipo de usuário inválido");
+            }
+
+            Usuario usuario = new Usuario(email, senha, tipoUsuarioEnum);
             return usuario;
         }
+
 
         public Usuario ValidarLogin(Usuario usuario, string senha)
         {
