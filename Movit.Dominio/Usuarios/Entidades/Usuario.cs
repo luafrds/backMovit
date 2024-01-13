@@ -18,12 +18,6 @@ namespace Movit.Dominio.Usuarios.Entidades
             SetTipoUsuario(tipoUsuario);
         }
 
-        public Usuario(string email, string senha)
-        {
-            SetEmail(email);
-            SetSenha(senha);
-        }
-
         protected Usuario() { }
 
         public virtual void SetEmail(string email)

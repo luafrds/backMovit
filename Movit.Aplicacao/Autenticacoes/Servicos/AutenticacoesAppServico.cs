@@ -3,6 +3,7 @@ using Movit.Aplicacao.Autenticacoes.Servicos.Interfaces;
 using Movit.DataTransfer.Autenticacoes.Request;
 using Movit.DataTransfer.Autenticacoes.Response;
 using Movit.Dominio.Autenticacoes.Servicos.Interfaces;
+using Movit.Dominio.Usuarios.Entidades;
 using Movit.Dominio.Usuarios.Repositorios;
 using Movit.Dominio.Usuarios.Servicos.Interfaces;
 
@@ -23,10 +24,10 @@ namespace Movit.Aplicacao.Autenticacoes.Servicos
             this.mapper = mapper;
         }
 
-        public async Task<CadastroResponse> CadastrarAsync(CadastroRequest cadastroRequest)
+        public async Task<CadastroResponse> CadastrarAsync(CadastroRequest request)
         {
-            var usuario =  autenticacoesServico.ValidarCadastro(cadastroRequest.Email, cadastroRequest.Senha);
-            usuario.SetSenhaHash(BCrypt.Net.BCrypt.HashPassword(cadastroRequest.Senha));
+            Usuario usuario =  autenticacoesServico.ValidarCadastro(request.Email, request.Senha, request.TipoUsuario);
+            usuario.SetSenhaHash(BCrypt.Net.BCrypt.HashPassword(request.Senha));
             usuario = await usuariosRepositorio.InserirAsync(usuario);
             return mapper.Map<CadastroResponse>(usuario);
         }
