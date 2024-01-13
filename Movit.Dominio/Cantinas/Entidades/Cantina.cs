@@ -3,11 +3,11 @@ namespace Movit.Dominio.Cantinas.Entidades
 {
     public class Cantina
     {
-        public int Id { get; protected set; }
-        public string NomeComida { get; protected set; }
-        public DateTime DataCantina { get; protected set; }
-        public decimal Valor { get; protected set; }
-        public int Quantidade { get; protected set; }
+        public virtual int Id { get; protected set; }
+        public virtual string NomeComida { get; protected set; }
+        public virtual DateTime DataCantina { get; protected set; }
+        public virtual decimal Valor { get; protected set; }
+        public virtual int Quantidade { get; protected set; }
 
         public Cantina(string nomeComida, DateTime dataCantina , decimal valor, int quantidade)
         {
@@ -15,9 +15,10 @@ namespace Movit.Dominio.Cantinas.Entidades
             SetDataCantina(dataCantina);
             SetValor(valor);
             SetQuantidade(quantidade);
-            
         }
-        public void SetNomeComida(string nomeComida)
+
+        protected Cantina(){}
+        public virtual void SetNomeComida(string nomeComida)
         {
             if(string.IsNullOrWhiteSpace(nomeComida))
             {
@@ -26,7 +27,7 @@ namespace Movit.Dominio.Cantinas.Entidades
             NomeComida = nomeComida;
         }
         
-        public void SetDataCantina(DateTime dataCantina)
+        public virtual void SetDataCantina(DateTime dataCantina)
         {
             if (dataCantina == DateTime.MinValue)
             throw new AtributoInvalidoExcecao("dataPedido");
@@ -34,7 +35,7 @@ namespace Movit.Dominio.Cantinas.Entidades
             DataCantina = dataCantina;
         }
 
-        public void SetValor(decimal valor)
+        public virtual void SetValor(decimal valor)
         {
             if (valor <= 0)
             throw new RegraDeNegocioExcecao("O preço não pode ser menor ou igual a Zero.");
@@ -42,7 +43,7 @@ namespace Movit.Dominio.Cantinas.Entidades
             Valor = valor;
         }
 
-        public void SetQuantidade(int quantidade)
+        public virtual void SetQuantidade(int quantidade)
         {
             if (quantidade < 0)
             throw new RegraDeNegocioExcecao("A quantidade não pode menor que Zero");
