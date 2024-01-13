@@ -14,6 +14,15 @@ namespace Movit.Aplicacao.Autenticacoes.Servicos
         private readonly IUsuariosServico usuariosServico;
         private readonly IAutenticacoesServico autenticacoesServico;
         private readonly IMapper mapper;
+
+        public AutenticacoesAppServico(IUsuariosRepositorio usuariosRepositorio, IUsuariosServico usuariosServico, IAutenticacoesServico autenticacoesServico, IMapper mapper)
+        {
+            this.usuariosRepositorio = usuariosRepositorio;
+            this.usuariosServico = usuariosServico;
+            this.autenticacoesServico = autenticacoesServico;
+            this.mapper = mapper;
+        }
+
         public async Task<CadastroResponse> CadastrarAsync(CadastroRequest cadastroRequest)
         {
             var usuario =  autenticacoesServico.ValidarCadastro(cadastroRequest.Email, cadastroRequest.Senha);
