@@ -1,45 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
-using Movit.Aplicacao.Usuarios.Servicos.Interfaces;
-using Movit.DataTransfer.Usuarios.Request;
-using Movit.DataTransfer.Usuarios.Response;
+using Movit.Aplicacao.Cantinas.Servicos.Interfaces;
+using Movit.DataTransfer.Cantinas.Request;
+using Movit.DataTransfer.Cantinas.Response;
 using Movit.Dominio.Util;
 
-namespace Movit.API.Controllers.Usuarios
+namespace Movit.API.Controllers.Cantinas
 {
     [ApiController]
     [Route("api/usuarios")]
-    public class UsuariosController : ControllerBase
+    public class CantinasController : ControllerBase
     {
-        private readonly IUsuariosAppServico usuariosAppServico;
+        private readonly ICantinasAppServico cantinasAppServico;
 
-        public UsuariosController(IUsuariosAppServico usuariosAppServico)
+        public CantinasController(ICantinasAppServico cantinasAppServico)
         {
-            this.usuariosAppServico = usuariosAppServico;
+            this.cantinasAppServico = cantinasAppServico;
         }
+
         /// <summary>
         /// Recupera um usuario por Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<UsuarioResponse>> RecuperarAsync(int id)
+        public async Task<ActionResult<CantinaResponse>> RecuperarAsync(int id)
         {
-            var response = await usuariosAppServico.RecuperarAsync(id);
+            var response = await cantinasAppServico.RecuperarAsync(id);
 
             if (response == null)
                 return NotFound();
+
             return Ok(response);
         }
-        
+
         /// <summary>
         /// Listar usuarios
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<PaginacaoConsulta<UsuarioResponse>>> ListarAsync([FromQuery] UsuarioListarRequest request)
+        public async Task<ActionResult<PaginacaoConsulta<CantinaResponse>>> ListarAsync([FromQuery] CantinaListarRequest request)
         {
-            var response = await usuariosAppServico.ListarAsync(request);
+            var response = await cantinasAppServico.ListarAsync(request);
             return Ok(response);
         }
 
@@ -50,9 +52,9 @@ namespace Movit.API.Controllers.Usuarios
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> EditarAsync(int id, [FromBody] UsuarioRequest request)
+        public async Task<ActionResult> EditarAsync(int id, [FromBody] CantinaRequest request)
         {
-            await usuariosAppServico.EditarAsync(id, request);
+            await cantinasAppServico.EditarAsync(id, request);
             return Ok();
         }
 
@@ -65,8 +67,9 @@ namespace Movit.API.Controllers.Usuarios
         [Route("{id}")]
         public async Task<ActionResult> ExcluirAsync(int id)
         {
-            await usuariosAppServico.ExcluirAsync(id);
+            await cantinasAppServico.ExcluirAsync(id);
             return Ok();
         }
+        
     }
 }
