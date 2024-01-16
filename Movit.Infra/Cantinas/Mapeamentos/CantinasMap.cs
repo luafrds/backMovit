@@ -7,6 +7,8 @@ namespace Movit.Infra.Cantinas.Mapeamentos
     {
         public CantinasMap()
         {
+            Schema("movit");
+            Table("cantina");
             Id(x => x.Id, "id");
             Map(x => x.NomeComida, "nomecomida");
             Map(x => x.DataCantina, "datacantina");
