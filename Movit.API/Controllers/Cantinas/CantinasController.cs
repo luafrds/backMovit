@@ -7,7 +7,7 @@ using Movit.Dominio.Util;
 namespace Movit.API.Controllers.Cantinas
 {
     [ApiController]
-    [Route("api/usuarios")]
+    [Route("api/cantinas")]
     public class CantinasController : ControllerBase
     {
         private readonly ICantinasAppServico cantinasAppServico;
@@ -18,7 +18,7 @@ namespace Movit.API.Controllers.Cantinas
         }
 
         /// <summary>
-        /// Recupera um usuario por Id
+        /// Recupera uma cantina por Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -34,7 +34,7 @@ namespace Movit.API.Controllers.Cantinas
         }
 
         /// <summary>
-        /// Listar usuarios
+        /// Listar cantinas
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -46,7 +46,7 @@ namespace Movit.API.Controllers.Cantinas
         }
 
         /// <summary>
-        /// Editar um usuario por Id
+        /// Editar uma cantina por Id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -59,7 +59,7 @@ namespace Movit.API.Controllers.Cantinas
         }
 
         /// <summary>
-        /// Excluir um usuario por Id
+        /// Excluir uma cantina por Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
