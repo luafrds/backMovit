@@ -70,6 +70,16 @@ namespace Movit.API.Controllers.Cantinas
             await cantinasAppServico.ExcluirAsync(id);
             return Ok();
         }
-        
+
+        ///<summary>
+        /// Criar Cantina.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost] 
+        public async Task<ActionResult> InserirAsync([FromBody] CantinaRequest request)
+        {
+            var response = await cantinasAppServico.InserirAsync(request);
+            return Ok(response);
+        } 
     }
 }
