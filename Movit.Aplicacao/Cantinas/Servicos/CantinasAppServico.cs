@@ -65,6 +65,24 @@ namespace Movit.Aplicacao.Cantinas.Servicos
                 throw;
             }
         }
+
+        public async Task<CantinaResponse> InserirAsync(CantinaRequest request)
+        {
+            var comando = mapper.Map<CantinaComando>(request);
+            try
+            {
+                unitOfWork.BeginTransaction();
+                var cantina = await cantinasServico.InserirAsync(comando);
+                unitOfWork.Commit();
+                return mapper.Map<CantinaResponse>(cantina);
+            }
+            catch(Exception ex)
+            {
+                logger.LogError("Deu erro", ex);
+                throw;
+            }
+        }
+
         public async Task<PaginacaoConsulta<CantinaResponse>> ListarAsync(CantinaListarRequest request)
         {
             CantinaListarFiltro filtro = mapper.Map<CantinaListarFiltro>(request);
