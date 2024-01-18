@@ -16,7 +16,6 @@ namespace Movit.API.Controllers.Usuarios
         {
             this.usuariosAppServico = usuariosAppServico;
         }
-
         /// <summary>
         /// Recupera um usuario por Id
         /// </summary>
@@ -29,10 +28,9 @@ namespace Movit.API.Controllers.Usuarios
 
             if (response == null)
                 return NotFound();
-
             return Ok(response);
         }
-
+        
         /// <summary>
         /// Listar usuarios
         /// </summary>
