@@ -38,7 +38,6 @@ namespace Movit.Dominio.Cantinas.Servicos
             Cantina cantina = await cantinasRepositorio.RecuperarAsync(id);
             if(cantina == null)
             throw new RegraDeNegocioExcecao("Cantina não encontrada");
-
             return cantina;
         }
     }
