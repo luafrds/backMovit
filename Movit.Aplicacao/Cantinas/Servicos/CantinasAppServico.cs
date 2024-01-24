@@ -21,7 +21,7 @@ namespace Movit.Aplicacao.Cantinas.Servicos
         private readonly IUnitOfWork unitOfWork;
         private readonly ILogger<CantinasAppServico> logger;
 
-            public CantinasAppServico(ICantinasRepositorio cantinasRepositorio, ICantinasServico cantinasServico, IMapper mapper, IUnitOfWork unitOfWork, ILogger<CantinasAppServico> logger)
+        public CantinasAppServico(ICantinasRepositorio cantinasRepositorio, ICantinasServico cantinasServico, IMapper mapper, IUnitOfWork unitOfWork, ILogger<CantinasAppServico> logger)
         {
             this.cantinasRepositorio = cantinasRepositorio;
             this.cantinasServico = cantinasServico;
