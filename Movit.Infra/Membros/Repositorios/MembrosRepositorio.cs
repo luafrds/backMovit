@@ -22,7 +22,6 @@ namespace Movit.Infra.Membros.Repositorios
             return query;
         }
 
-        // ???????
 
         public async Task<Membro> RecuperaUsuarioPorEmailAsync(string email)
         {

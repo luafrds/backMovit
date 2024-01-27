@@ -1,5 +1,3 @@
-using Movit.Dominio.Membros.Enumeradores;
-using Movit.Dominio.Usuarios.Entidades;
 using Movit.Dominio.Util;
 using Movit.Dominio.Util.Enumeradores;
 
