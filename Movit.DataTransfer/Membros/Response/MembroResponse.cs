@@ -1,5 +1,4 @@
 using Movit.DataTransfer.Usuarios.Response;
-using Movit.Dominio.Usuarios.Entidades;
 
 namespace Movit.DataTransfer.Membros.Response
 {

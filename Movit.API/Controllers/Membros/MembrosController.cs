@@ -69,7 +69,7 @@ namespace Movit.API.Controllers.Membros
             return Ok();
         }
 
-         ///<summary>
+        ///<summary>
         /// Criar Membro.
         /// </summary>
         /// <returns></returns>
