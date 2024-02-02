@@ -25,6 +25,7 @@ namespace Movit.Dominio.Membros.Servicos
             membro.SetEmail(comando.Email);
             membro.SetDataNascimento(comando.DataNascimento);
             membro.SetUsuario(usuario);
+            
             await membrosRepositorio.EditarAsync(membro);
             return membro;
         }

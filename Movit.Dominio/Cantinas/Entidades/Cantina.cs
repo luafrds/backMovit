@@ -30,7 +30,7 @@ namespace Movit.Dominio.Cantinas.Entidades
         public virtual void SetDataCantina(DateTime dataCantina)
         {
             if (dataCantina == DateTime.MinValue)
-            throw new AtributoInvalidoExcecao("dataPedido");
+            throw new AtributoInvalidoExcecao("Data cantina");
 
             DataCantina = dataCantina;
         }
