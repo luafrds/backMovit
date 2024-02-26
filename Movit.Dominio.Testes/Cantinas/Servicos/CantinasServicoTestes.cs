@@ -66,7 +66,7 @@ namespace Movit.Dominio.Testes.Cantinas.Servicos
         public class EditarAsyncMetodo : CantinasServicoTestes
         {
             [Fact]
-            public async Task Quando_MetodoForChamado_Espero_MembroAtualizado()
+            public async Task Quando_MetodoForChamado_Espero_CantinaAtualizada()
             {
                 cantinasRepositorio.Recuperar(1).Returns(cantinaValida);
 
