@@ -33,5 +33,9 @@ namespace Movit.Dominio.Cidades.Entidades
         Estado = estado ?? throw new AtributoObrigatorioExcecao("Estado");
     }
 
+        public void SetEstado(object estadoValido)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

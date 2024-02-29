@@ -37,7 +37,6 @@ namespace Movit.Dominio.Testes.Membros.Servicos
             {
                 membrosRepositorio.RecuperarAsync(2).ReturnsNull();
                 sut.Invoking(x => x.ValidarAsync(2)).Should().ThrowAsync<RegraDeNegocioExcecao>();
-
             }
 
             [Fact]
@@ -79,6 +78,5 @@ namespace Movit.Dominio.Testes.Membros.Servicos
                 resultado.DataNascimento.Should().Be(comando.DataNascimento);
             }
         }
-
     }
 }
