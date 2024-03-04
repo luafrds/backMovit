@@ -4,7 +4,6 @@ using Movit.Dominio.Cantinas.Entidades;
 using Movit.Dominio.Cantinas.Repositorios;
 using Movit.Dominio.Cantinas.Servicos;
 using Movit.Dominio.Cantinas.Servicos.Comandos;
-using Movit.Dominio.Cantinas.Servicos.Interfaces;
 using Movit.Dominio.Excecoes;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
