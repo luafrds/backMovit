@@ -25,7 +25,7 @@ namespace Movit.Dominio.Testes.Cidades.Servicos
             cidadeValida = Builder<Cidade>.CreateNew().Build();
             cidadesRepositorio = Substitute.For<ICidadesRepositorio>();
             estadosServico = Substitute.For<IEstadosServico>();
-            comando = Builder<CidadeComando>.CreateNew().With(x => x.Descricao, "teste Cidade").Build();
+            comando = Builder<CidadeComando>.CreateNew().With(x => x.Descricao, "Teste Cidade").Build();
 
             sut = new CidadesServico(cidadesRepositorio, estadosServico);
         }
@@ -61,7 +61,7 @@ namespace Movit.Dominio.Testes.Cidades.Servicos
             }
         }
 
-            public class EditarAsyncMetodo : CidadesServicoTestes
+        public class EditarAsyncMetodo : CidadesServicoTestes
         {
             [Fact]
             public async Task Quando_MetodoForChamado_Espero_CidadeAtualizado()

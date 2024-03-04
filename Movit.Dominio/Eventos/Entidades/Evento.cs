@@ -72,8 +72,8 @@ namespace Movit.Dominio.Eventos.Entidades
             if (string.IsNullOrWhiteSpace(logradouro))
                 throw new AtributoObrigatorioExcecao("Logradouro");
 
-            if (logradouro.Length > 255)
-                throw new TamanhoDeAtributoInvalidoExcecao("Logradouro", null, tamanhoMaximo: 255);
+            if (logradouro.Length > 50)
+                throw new TamanhoDeAtributoInvalidoExcecao("Logradouro", null, tamanhoMaximo: 50);
 
             Logradouro = logradouro;
         }
