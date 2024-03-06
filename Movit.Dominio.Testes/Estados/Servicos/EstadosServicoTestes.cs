@@ -61,7 +61,7 @@ namespace Movit.Dominio.Testes.Estados.Servicos
             }
         }
 
-            public class EditarAsyncMetodo : EstadosServicoTestes
+        public class EditarAsyncMetodo : EstadosServicoTestes
         {
             [Fact]
             public async Task Quando_MetodoForChamado_Espero_EstadoAtualizado()

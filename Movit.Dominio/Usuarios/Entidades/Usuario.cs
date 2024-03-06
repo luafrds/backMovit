@@ -71,7 +71,5 @@ namespace Movit.Dominio.Usuarios.Entidades
         {
             Senha = senhaHash;
         }
-
-
     }
 }
