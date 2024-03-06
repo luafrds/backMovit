@@ -29,6 +29,8 @@ namespace Movit.Dominio.Testes.Eventos.Entidades
             {
                 sut.Invoking(x => x.SetTitulo(titulo)).Should().Throw<RegraDeNegocioExcecao>();
             }
+
+            [Fact]
             public void Dado_TituloCompletoValido_Espero_PropriedadesPreenchidas()
             {
                 string titulo = "Titulo Teste";
